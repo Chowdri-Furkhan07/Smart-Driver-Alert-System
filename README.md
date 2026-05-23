@@ -1,14 +1,36 @@
-# Drowsiness_detection
-This project focuses on developing a real-time drowsiness detection system using OpenCV, Dlib, and pyttsx3. The system aims to identify signs of fatigue or drowsiness in individuals, particularly drivers, by monitoring their eye movements and providing an instant audio alert when drowsiness is detected.
+# Driver Drowsiness Detection System
 
-The project uses computer vision and facial landmark detection techniques to recognize eye closure patterns. A webcam continuously captures video frames, which are converted to grayscale for efficient processing. Dlib’s frontal face detector identifies faces in the frame, and the shape predictor model (shape_predictor_68_face_landmarks.dat) maps 68 specific facial landmarks, including eye coordinates.
+An AI-powered real-time drowsiness detection system designed to monitor eye movements and detect signs of fatigue using computer vision and facial landmark analysis. The system uses OpenCV, Dlib, and pyttsx3 to identify prolonged eye closure and provide instant voice alerts for improved safety and attention monitoring.
 
-To detect drowsiness, the system calculates the Eye Aspect Ratio (EAR) — a metric derived from the Euclidean distances between vertical and horizontal eye landmarks. If the eyes are open, the EAR value remains relatively high; however, when the eyes close or droop due to drowsiness, the EAR drops significantly.
+## Features
 
-When the average EAR of both eyes falls below a defined threshold (e.g., 0.25), the system recognizes this as a sign of drowsiness. It then overlays visual warnings on the screen—such as “DROWSINESS DETECTED” and “Alert! WAKE UP DUDE”—and simultaneously uses pyttsx3 to deliver a voice alert, ensuring the person becomes aware and reacts immediately.
+* Real-time face and eye detection
+* Eye Aspect Ratio (EAR)–based drowsiness detection
+* Instant audio alert using speech synthesis
+* Live webcam monitoring and visual warning system
+* Facial landmark tracking using Dlib
+* Efficient and responsive fatigue detection
 
-The program continuously monitors the user until manually stopped. It can be fine-tuned by adjusting the EAR threshold or duration of eye closure detection for different environments or lighting conditions.
+## Tech Stack
 
-This project has practical applications in driver safety systems, health monitoring, and industrial automation, where constant attention is critical. It represents an integration of AI-based facial recognition, image processing, and speech synthesis to enhance human safety and prevent fatigue-related accidents.
+* Python
+* OpenCV
+* Dlib
+* NumPy
+* pyttsx3
 
-By combining automation and real-time alerting, this system provides a cost-effective, non-intrusive, and reliable solution to address drowsiness detection challenges in daily life.
+## Working Principle
+
+The system captures live video through a webcam and detects facial landmarks using Dlib’s 68-point face landmark predictor. Eye landmarks are extracted to calculate the Eye Aspect Ratio (EAR), which measures eye openness. When the EAR falls below a predefined threshold for a certain duration, the system identifies drowsiness and triggers visual and voice alerts in real time.
+
+## Use Cases
+
+* Driver safety and accident prevention
+* Fatigue monitoring systems
+* Smart surveillance applications
+* Workplace safety monitoring
+* AI-based attention tracking systems
+
+## Project Goal
+
+The primary objective of this project is to develop a reliable, cost-effective, and non-intrusive drowsiness detection system that enhances human safety through real-time monitoring, computer vision, and intelligent alert mechanisms.
