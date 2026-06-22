@@ -1,0 +1,7 @@
+opencv-python
+dlib
+numpy
+scipy
+pyttsx3
+winsound ; sys_platform == 'win32'
+thread6
