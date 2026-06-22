@@ -13,7 +13,7 @@
 
 ## 📌 Overview
 
-Driver fatigue is one of the leading causes of road accidents worldwide. This system delivers a **production-grade, camera-only safety solution** — no wearables, no additional hardware beyond a standard webcam.
+Driver fatigue is one of the leading causes of road accidents worldwide. This system delivers a **production-grade, camera-only safety solution** - no wearables, no additional hardware beyond a standard webcam.
 
 The system runs a per-frame computer vision pipeline using **Dlib's 68-point facial landmark predictor**. It extracts eye and mouth landmark coordinates every frame to compute two independent fatigue signals:
 
@@ -27,7 +27,7 @@ On detecting either condition, the system fires a **dual alert** (voice via `pyt
 ## ✨ Features
 
 - 👁️ **Drowsiness detection** via Eye Aspect Ratio (EAR) threshold over consecutive frames
-- 😮 **Yawn detection** via Mouth Aspect Ratio (MAR) — independent of eye state
+- 😮 **Yawn detection** via Mouth Aspect Ratio (MAR) - independent of eye state
 - 🔊 **Dual alert system** - simultaneous voice alert (`pyttsx3`) + audible beep (`winsound`) on separate threads
 - 📸 **Auto-snapshot capture** - drowsy and yawn incidents saved to `drowsy_snaps/` with timestamps
 - 📊 **CSV session logging** - every frame logs `Timestamp`, `EAR`, `MAR`, `Status` to `ear_log.csv`
@@ -52,7 +52,7 @@ Dlib HOG face detector locates face bounding box
           ↓
 Dlib 68-point landmark predictor maps facial geometry
           ↓
-          ├── Eye landmarks extracted (36–41 left, 42–47 right)
+          ├── Eye landmarks extracted (36-41 left, 42-47 right)
           │         ↓
           │   EAR computed & averaged across both eyes
           │         ↓
@@ -63,7 +63,7 @@ Dlib 68-point landmark predictor maps facial geometry
           │   → Fire voice alert thread (pyttsx3)
           │   → Fire beep alert thread (winsound)
           │
-          └── Mouth landmarks extracted (48–67)
+          └── Mouth landmarks extracted (48-67)
                     ↓
               MAR computed
                     ↓
@@ -117,11 +117,11 @@ MAR =  ────────────────────────�
 | Component | Technology |
 |---|---|
 | Video Capture & Processing | OpenCV (`cv2`) |
-| Face Detection | Dlib — HOG + SVM Frontal Face Detector |
-| Facial Landmark Estimation | Dlib — 68-Point Shape Predictor |
+| Face Detection | Dlib - HOG + SVM Frontal Face Detector |
+| Facial Landmark Estimation | Dlib - 68-Point Shape Predictor |
 | EAR / MAR Computation | NumPy + SciPy (`spatial.distance.euclidean`) |
-| Voice Alert | pyttsx3 — Text-to-Speech Engine |
-| Beep Alert | winsound — Windows System Audio |
+| Voice Alert | pyttsx3 - Text-to-Speech Engine |
+| Beep Alert | winsound - Windows System Audio |
 | Multi-threading | Python `threading` module (daemon threads) |
 | Session Logging | Python `csv` module → `ear_log.csv` |
 | Incident Snapshots | OpenCV `cv2.imwrite()` → `drowsy_snaps/` |
@@ -211,7 +211,7 @@ pyttsx3
 imutils
 ```
 
-> `winsound` is built into Python on Windows — no installation needed.
+> `winsound` is built into Python on Windows - no installation needed.
 
 ---
 
@@ -225,7 +225,7 @@ Every processed frame writes a row to `ear_log.csv`:
 | 2025-06-01 08:43:05.441 | 0.18 | 0.41 | DROWSY |
 | 2025-06-01 08:44:22.119 | 0.29 | 0.81 | YAWNING |
 
-This log enables **post-trip fatigue analysis** — load into Excel, Pandas, or Power BI to visualize drowsiness patterns over time.
+This log enables **post-trip fatigue analysis** - load into Excel, Pandas, or Power BI to visualize drowsiness patterns over time.
 
 ---
 
@@ -234,9 +234,9 @@ This log enables **post-trip fatigue analysis** — load into Excel, Pandas, or 
 | Concept | Implementation |
 |---|---|
 | Facial Landmark Detection | Dlib 68-point predictor on live grayscale frames |
-| Geometric Feature Engineering | EAR (eyes) + MAR (mouth) — dual independent fatigue signals |
+| Geometric Feature Engineering | EAR (eyes) + MAR (mouth) - dual independent fatigue signals |
 | Threshold-Based Classification | Consecutive-frame EAR check + single-frame MAR check |
-| Multi-threaded Alerting | `threading.Thread(daemon=True)` for voice + beep — zero FPS impact |
+| Multi-threaded Alerting | `threading.Thread(daemon=True)` for voice + beep - zero FPS impact |
 | Incident Logging & Snapshotting | `csv` writer + `cv2.imwrite()` for every drowsy/yawn event |
 | Safety-Critical System Design | Fail-safe reset logic — `alert_on` flag prevents duplicate threads |
 | Real-Time HUD | Live EAR/MAR values + status text overlaid on video feed |
@@ -245,24 +245,24 @@ This log enables **post-trip fatigue analysis** — load into Excel, Pandas, or 
 
 ## 💡 Use Cases
 
-- 🚗 **Commercial fleet monitoring** — long-haul truck and bus driver safety
-- 🏭 **Industrial safety** — heavy machinery operators on night shifts
-- ✈️ **Aviation** — pilot alertness monitoring in cockpit simulation
-- 🏥 **Healthcare** — attention monitoring for ICU staff and shift workers
-- 📚 **EdTech** — student engagement and focus tracking
-- 🔬 **HCI / Safety Research** — baseline prototype for wearable-free fatigue detection
+- 🚗 **Commercial fleet monitoring** - long-haul truck and bus driver safety
+- 🏭 **Industrial safety** - heavy machinery operators on night shifts
+- ✈️ **Aviation** - pilot alertness monitoring in cockpit simulation
+- 🏥 **Healthcare** - attention monitoring for ICU staff and shift workers
+- 📚 **EdTech** - student engagement and focus tracking
+- 🔬 **HCI / Safety Research** - baseline prototype for wearable-free fatigue detection
 
 ---
 
 ## 🔮 Future Enhancements
 
-- [ ] Head pose estimation — detect forward nodding using 3D landmark projection
-- [ ] REST API endpoint — stream alerts to a fleet management dashboard
-- [ ] SMS / push notification — integrate Twilio for remote fleet alerts
-- [ ] Power BI / Tableau integration — live EAR/MAR dashboard from CSV log
-- [ ] Cross-platform audio — replace `winsound` with `playsound` for macOS/Linux
-- [ ] Embedded deployment — optimize for Raspberry Pi 4 / NVIDIA Jetson Nano
-- [ ] IR camera support — enable detection in low-light / night-driving conditions
+- [ ] Head pose estimation - detect forward nodding using 3D landmark projection
+- [ ] REST API endpoint - stream alerts to a fleet management dashboard
+- [ ] SMS / push notification - integrate Twilio for remote fleet alerts
+- [ ] Power BI / Tableau integration - live EAR/MAR dashboard from CSV log
+- [ ] Cross-platform audio - replace `winsound` with `playsound` for macOS/Linux
+- [ ] Embedded deployment - optimize for Raspberry Pi 4 / NVIDIA Jetson Nano
+- [ ] IR camera support - enable detection in low-light / night-driving conditions
 
 ---
 
