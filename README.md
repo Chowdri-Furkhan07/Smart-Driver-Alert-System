@@ -28,13 +28,13 @@ On detecting either condition, the system fires a **dual alert** (voice via `pyt
 
 - 👁️ **Drowsiness detection** via Eye Aspect Ratio (EAR) threshold over consecutive frames
 - 😮 **Yawn detection** via Mouth Aspect Ratio (MAR) — independent of eye state
-- 🔊 **Dual alert system** — simultaneous voice alert (`pyttsx3`) + audible beep (`winsound`) on separate threads
-- 📸 **Auto-snapshot capture** — drowsy and yawn incidents saved to `drowsy_snaps/` with timestamps
-- 📊 **CSV session logging** — every frame logs `Timestamp`, `EAR`, `MAR`, `Status` to `ear_log.csv`
+- 🔊 **Dual alert system** - simultaneous voice alert (`pyttsx3`) + audible beep (`winsound`) on separate threads
+- 📸 **Auto-snapshot capture** - drowsy and yawn incidents saved to `drowsy_snaps/` with timestamps
+- 📊 **CSV session logging** - every frame logs `Timestamp`, `EAR`, `MAR`, `Status` to `ear_log.csv`
 - 📈 **Excel-compatible log** (`ear_log.xls`) for post-trip fatigue analysis
 - 🎯 **68-point facial landmark tracking** via Dlib shape predictor
-- 🖼️ **Live HUD overlay** — EAR and MAR values rendered on-screen in real time
-- ⚡ **Multi-threaded alerts** — alerts run on daemon threads, zero impact on video FPS
+- 🖼️ **Live HUD overlay** - EAR and MAR values rendered on-screen in real time
+- ⚡ **Multi-threaded alerts** - alerts run on daemon threads, zero impact on video FPS
 - 💻 **Windows-native** with `winsound` for zero-latency system beep
 
 ---
@@ -137,7 +137,7 @@ Smart-Driver-Alert-System/
 │
 ├── Drowsiness Detection.ipynb              # Main notebook implementation
 ├── shape_predictor_68_face_landmarks.dat   # Dlib pre-trained model (download separately)
-├── Requirements.txt                        # Python dependencies
+├── requirements.txt                        # Python dependencies
 ├── ear_log.csv                             # Auto-generated session log (Timestamp, EAR, MAR, Status)
 ├── ear_log.xls                             # Excel-compatible session log
 ├── drowsy_snaps/                           # Auto-saved incident snapshots
@@ -168,7 +168,7 @@ source .venv/bin/activate     # macOS / Linux
 ### 3. Install Dependencies
 
 ```bash
-pip install -r Requirements.txt
+pip install -r requirements.txt
 ```
 
 Or manually:
