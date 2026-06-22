@@ -90,8 +90,8 @@ EAR =  ────────────────────────�
 
 | EAR Value | Eye State |
 |---|---|
-| ≥ 0.30 | Eyes open — Alert |
-| 0.21 – 0.29 | Partially closed — Transitioning |
+| ≥ 0.30 | Eyes open - Alert |
+| 0.21 – 0.29 | Partially closed - Transitioning |
 | < 0.21 for 20+ frames | **DROWSY → ALERT TRIGGERED** |
 
 ---
@@ -106,7 +106,7 @@ MAR =  ────────────────────────�
 
 | MAR Value | Mouth State |
 |---|---|
-| < 0.65 | Mouth closed — Normal |
+| < 0.65 | Mouth closed - Normal |
 | 0.65 – 0.75 | Mouth slightly open |
 | > 0.75 | **YAWNING → ALERT TRIGGERED** |
 
@@ -194,7 +194,7 @@ Extract the `.dat` file and place it in the **project root directory**.
 jupyter notebook "Drowsiness Detection.ipynb"
 ```
 
-Run all cells — the webcam activates and monitoring begins.
+Run all cells - the webcam activates and monitoring begins.
 
 **To exit:** Press `q` in the OpenCV window.
 
