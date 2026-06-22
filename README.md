@@ -1,6 +1,6 @@
-# 🚗 Smart Driver Alert System — Real-Time Drowsiness & Yawn Detection
+# 🚗 Smart Driver Alert System - Real-Time Drowsiness & Yawn Detection
 
-> An AI-powered driver safety system that monitors eyes and mouth in real time via webcam. Using Eye Aspect Ratio (EAR) and Mouth Aspect Ratio (MAR) computed from Dlib's 68-point facial landmarks, it detects drowsiness and yawning simultaneously — triggering dual voice + beep alerts, auto-saving snapshots of every incident, and logging all session data to CSV for post-trip analysis.
+> An AI-powered driver safety system that monitors eyes and mouth in real time via webcam. Using Eye Aspect Ratio (EAR) and Mouth Aspect Ratio (MAR) computed from Dlib's 68-point facial landmarks, it detects drowsiness and yawning simultaneously - triggering dual voice + beep alerts, auto-saving snapshots of every incident, and logging all session data to CSV for post-trip analysis.
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat&logo=python)
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green?style=flat&logo=opencv)
@@ -17,8 +17,8 @@ Driver fatigue is one of the leading causes of road accidents worldwide. This sy
 
 The system runs a per-frame computer vision pipeline using **Dlib's 68-point facial landmark predictor**. It extracts eye and mouth landmark coordinates every frame to compute two independent fatigue signals:
 
-- **EAR (Eye Aspect Ratio)** — detects prolonged eye closure (drowsiness)
-- **MAR (Mouth Aspect Ratio)** — detects wide mouth opening (yawning)
+- **EAR (Eye Aspect Ratio)** - detects prolonged eye closure (drowsiness)
+- **MAR (Mouth Aspect Ratio)** - detects wide mouth opening (yawning)
 
 On detecting either condition, the system fires a **dual alert** (voice via `pyttsx3` + beep via `winsound`), **auto-saves an incident snapshot** to disk, and **logs timestamp, EAR, MAR, and status** to a CSV file for post-session analysis.
 
